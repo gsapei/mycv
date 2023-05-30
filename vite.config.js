@@ -12,6 +12,13 @@ export default defineConfig({
 		vue(),
 		vuetify({ autoImport: true }),
 	],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/css/variables.scss";`
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

@@ -1,263 +1,299 @@
 <template>
-  <v-container class="principalContainer py-6 px-15" fluid> 
-    <v-card class="pa-6">     
-      <v-row 
-      no-gutters
-      align="center"
-      class="py-7"
-      >
-        <v-col cols="3" class="px-4 py-4" style="height: 100%; text-align: center;"> 
-          <img :src="userPhoto" style="size: 50%; border-radius: 50%;" >
-        </v-col>
-        <v-col cols="1" style="text-align: center;"/>
-          <v-col cols="8">
-          <div class="text-center">
-            <h1 class="principalTitle">{{ principalTitle.toUpperCase() }}</h1>
-              <div>
-               <h3 class="principalSubtitle">{{ principalSubtitle.toUpperCase() }}</h3>
-              </div>
-          </div>
-        </v-col>
-      </v-row>
-        
-      <v-row>         
-        <v-col cols="3">
-
-          <v-row class="pa-4">
-
+  <div class="background"/>
+  <div class="backgroundHue"/>
+    <v-container class="py-10 px-15" fluid>
+  
+      <v-card class="colorPicker" v-if="colorPicker">
+          <v-col>
             <v-row>
-              <h2 class="px-8 py-4">CONTACT ME</h2> 
+              <v-btn size="small" color="blue" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlue')"></v-btn>
             </v-row>
-            
-            <v-row class="mx-2">
-              <v-col cols="2">
-                <v-icon icon="fa-sharp fa-solid fa-house"></v-icon>
-              </v-col>
-              <v-col cols="10" style="text-align: right;">
-                <h4 style="color: gray;"> {{ userAdress }} </h4>
-              </v-col>
+            <v-row>
+              <v-btn size="small" color="green" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeGreen')"></v-btn>
             </v-row>
-            
-            <v-row class="mx-2">
-              <v-col cols="2" class="pl-4">
-                <v-icon icon="fa-solid fa-mobile"></v-icon>
-              </v-col>
-              <v-col cols="10" style="text-align: right;">
-                <h4 style="color: gray;"> {{ userPhone }} </h4>
-              </v-col>
+            <v-row>
+              <v-btn size="small" color="warning" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeGold')"></v-btn>
             </v-row>
+            <v-row>
+              <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlack')"></v-btn>
+            </v-row>
+          </v-col>
+  
+      </v-card>
+      
+      <v-card class="pa-2">     
+        
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-print"></v-btn>
+          <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-brush" @click="colorPicker=!colorPicker"></v-btn>
+        </v-card-actions>
+        
+        <v-card-title>
+          <v-row align="center">
             
-            <v-row class="mx-2">
-              <v-col cols="2">
-                <v-icon icon="fa-solid fa-envelope"></v-icon>
-              </v-col>
-              <v-col cols="10" style="text-align: right;">
-                <h4 style="color: gray;"> {{ userEmail }} </h4>
-              </v-col>
-            </v-row>          
+            <v-col cols="4" class="pa-4" style="height: 100%; text-align: center;"> 
+              <img :src="userPhoto" style="max-width: 60%; border-radius: 50%;" >
+            </v-col>
           
-            <v-row class="mx-2">
-              <v-col cols="2">
-                <v-icon icon="fa-brands fa-square-instagram"></v-icon>
+            <v-col cols="1"/>
+  
+            <v-col cols="7">
+              <div class="text-center">
+                <h1>{{ principalTitle.toUpperCase() }}</h1>
+                <h3 class="text-primary pt-3">{{ principalSubtitle.toUpperCase() }}</h3>
+              </div>
+            </v-col>
+          
+          </v-row>
+        </v-card-title>
+          
+        <v-row class="py-6">  
+                  
+          <v-col cols="4" class="px-4">
+  
+            <v-row class="pa-4">
+              <v-col cols="12">
+                <v-row>
+                  <h2 class="px-4 pb-4">CONTACT ME</h2> 
+                </v-row>
+                
+                <v-row class="ml-2">
+                  <v-col cols="2">
+                    <v-icon color="primary" icon="fa-sharp fa-solid fa-house"></v-icon>
+                  </v-col>
+                  <v-col cols="10" style="text-align: right;">
+                    <h4 style="color: gray;"> {{ userAdress }} </h4>
+                  </v-col>
+                </v-row>
+                
+                <v-row class="ml-2">
+                  <v-col cols="2" class="pl-4">
+                    <v-icon color="primary" icon="fa-solid fa-mobile"></v-icon>
+                  </v-col>
+                  <v-col cols="10" style="text-align: right;">
+                    <h4 style="color: gray;"> {{ userPhone }} </h4>
+                  </v-col>
+                </v-row>
+                
+                <v-row class="ml-2">
+                  <v-col cols="2">
+                    <v-icon color="primary" icon="fa-solid fa-envelope"></v-icon>
+                  </v-col>
+                  <v-col cols="10" style="text-align: right;">
+                    <h4 style="color: gray;"> {{ userEmail }} </h4>
+                  </v-col>
+                </v-row>          
+              
+                <v-row class="ml-2">
+                  <v-col cols="2">
+                    <v-icon color="primary" icon="fa-brands fa-square-instagram"></v-icon>
+                  </v-col>
+                  <v-col cols="10" style="text-align: right;">
+                    <h4 style="color: gray;"> {{ userInstagram }} </h4>
+                  </v-col>
+                </v-row> 
+                
+                <v-row class="ml-2">
+                  <v-col cols="2">
+                    <v-icon color="primary" icon="fa-brands fa-linkedin"></v-icon>
+                  </v-col>
+                  <v-col cols="10" style="text-align: right;">
+                    <h4 style="color: gray;"> {{ userLinkedIn }} </h4>
+                  </v-col>
+                </v-row> 
+  
+                <v-row class="ml-2">
+                  <v-col cols="2">
+                    <v-icon color="primary" icon="fa-brands fa-github"></v-icon>
+                  </v-col>
+                  <v-col cols="10" style="text-align: right;">
+                    <h4 style="color: gray;"> {{ userGithub }} </h4>
+                  </v-col>
+                </v-row>   
+  
+                <v-row class="ml-2">
+                  <v-col cols="2">
+                    <v-icon color="primary" icon="fa-brands fa-flickr"></v-icon>
+                  </v-col>
+                  <v-col cols="10" style="text-align: right;">
+                    <h4 style="color: gray;"> {{ userFlickr }} </h4>
+                  </v-col>
+                </v-row>            
               </v-col>
-              <v-col cols="10" style="text-align: right;">
-                <h4 style="color: gray;"> {{ userInstagram }} </h4>
-              </v-col>
-            </v-row> 
-            
-            <v-row class="mx-2">
-              <v-col cols="2">
-                <v-icon icon="fa-brands fa-linkedin"></v-icon>
-              </v-col>
-              <v-col cols="10" style="text-align: right;">
-                <h4 style="color: gray;"> {{ userLinkedIn }} </h4>
-              </v-col>
-            </v-row> 
-
-            <v-row class="mx-2">
-              <v-col cols="2">
-                <v-icon icon="fa-brands fa-github"></v-icon>
-              </v-col>
-              <v-col cols="10" style="text-align: right;">
-                <h4 style="color: gray;"> {{ userGithub }} </h4>
-              </v-col>
-            </v-row>   
-
-            <v-row class="mx-2">
-              <v-col cols="2">
-                <v-icon icon="fa-brands fa-flickr"></v-icon>
-              </v-col>
-              <v-col cols="10" style="text-align: right;">
-                <h4 style="color: gray;"> {{ userFlickr }} </h4>
-              </v-col>
+            </v-row>  
+              
+            <v-row>
+              <h2 class="px-8 pb-4 pt-8">EDUCATION</h2> 
+            </v-row>
+  
+            <v-row>
+              <h3 class="px-8">
+                {{ userEducation }}
+              </h3> 
+              <p class="px-8" style="color: gray; text-align: justify;">
+                {{ userEducationInstitute }}
+              </p>            
+              <p class="px-8" style="color: gray;">
+                {{ userEducationYear }}
+              </p>            
             </v-row>            
+  
+            <v-row>
+              <h2 class="px-8 pb-4 pt-8">LANGUAGES</h2> 
+            </v-row>
+  
+            <v-row
+            v-for="lang in languages"
+            :key="lang.name"
+            class="px-6"
+            >
+              <v-col cols="4">
+                <div>{{ lang.name.toUpperCase() }}</div>      
+              </v-col>
+              <v-col cols="8">
+                <v-progress-linear color="primary"
+                  :model-value="lang.percent"
+                  height="20"
+                >
+                </v-progress-linear>
+              </v-col>
+  
+            </v-row>                 
           
-          </v-row>  
-            
-          <v-row>
-            <h2 class="px-8 pb-4 pt-8">EDUCATION</h2> 
-          </v-row>
-
-          <v-row>
-            <h3 class="px-8">
-              {{ userEducation }}
-            </h3> 
-            <h4 class="px-8" style="color: gray;">
-              {{ userEducationInstitute }}
-            </h4>            
-            <p class="px-8" style="color: gray;">
-              {{ userEducationYear }}
-            </p>            
-          </v-row>            
-
-          <v-row>
-            <h2 class="px-8 pb-4 pt-8">LANGUAGES</h2> 
-          </v-row>
-
-          <v-row
-          v-for="lang in languages"
-          :key="lang.name"
-          class="px-6"
-          >
-            <v-col cols="4">
-              <div>{{ lang.name.toUpperCase() }}</div>      
-            </v-col>
-            <v-col cols="8">
-              <v-progress-linear
-                :model-value="lang.percent"
-                height="20"
-              >
-              </v-progress-linear>
-            </v-col>
-
-          </v-row>                 
-        
-        </v-col>
-
-        <v-col cols="1" class="pt-6">
-          <div class="divider"></div>  
-        </v-col>
-        
-        <v-col cols="8">
-          <v-row>
-            <h2 class="px-6 py-4">INTRODUCTION</h2> 
-          </v-row>
-          <v-row class="py-2 px-6" style="text-align: justify;">
-            <p v-html="userDescription"></p>
-          </v-row>
-
-          <v-row>
-            <h2 class="px-6 pb-4 pt-8">EXPERIENCE</h2> 
-          </v-row>    
-          <v-row class="py-2 px-6" style="text-align: justify;">
-            <p v-html="userExperience"></p>
-          </v-row>   
+          </v-col>
+  
+          <v-col cols="1" class="pt-6">
+            <div class="divider text-primary"></div>  
+          </v-col>
           
-          <v-row>
-            <h2 class="px-6 pb-4 pt-8">SKILLS</h2> 
-          </v-row>    
-
-          <v-row>
-
-            <v-col>
-              
-              <v-row>
-                <h4 class="pl-6 pb-4">FRONTEND</h4> 
-              </v-row>    
-                  <v-row v-for="data in userSkills.frontend" :key="data" class="px-4">
-                    <v-col cols="8">
-                      <v-progress-linear :model-value="data.percent" height="20">
-                      </v-progress-linear>
-                    </v-col>                    
-                    <v-col cols="4">
-                      <div style="text-align: left;">{{data.name}}</div>
-                    </v-col>
-                  </v-row>
-
-            </v-col> 
-
-            <v-col>
-              
-              <v-row>
-                <h4 class="pl-6 pb-4">BACKEND</h4> 
-              </v-row>    
-                  <v-row v-for="data in userSkills.backend" :key="data" class="px-4">
-                    <v-col cols="8">
-                      <v-progress-linear :model-value="data.percent" height="20">
-                      </v-progress-linear>
-                    </v-col>                    
-                    <v-col cols="4">
-                      <div style="text-align: left;">{{data.name}}</div>
-                    </v-col>
-                  </v-row>
-
-            </v-col> 
-
-          </v-row>
-          <v-row class="pt-8">
+          <v-col cols="7" class="px-8">
+            <v-row>
+              <h2 class="px-4 py-4">INTRODUCTION</h2> 
+            </v-row>
+            <v-row class="px-4 py-2" style="text-align: justify;">
+              <p v-html="userDescription"></p>
+            </v-row>
+  
+            <v-row>
+              <h2 class="px-4 pb-4 pt-8">EXPERIENCE</h2> 
+            </v-row>    
+            <v-row class="px-4 py-2" style="text-align: justify;">
+              <p v-html="userExperience"></p>
+            </v-row>   
             
-            <v-col>
+            <v-row>
+              <h2 class="px-4 pb-6 pt-8">SKILLS</h2> 
+            </v-row>    
+  
+            <v-row>
+  
+              <v-col cols="6">
+                
+                <v-row class="px-4 pb-4">
+                  <h4>FRONTEND</h4> 
+                </v-row>    
+                    <v-row v-for="data in userSkills.frontend" :key="data" class="pl-1">
+                      <v-col cols="8">
+                        <v-progress-linear color="primary" :model-value="data.percent" height="20">
+                        </v-progress-linear>
+                      </v-col>                    
+                      <v-col cols="4">
+                        <div style="text-align: left;">{{data.name}}</div>
+                      </v-col>
+                    </v-row>
+  
+              </v-col> 
+  
+              <v-col cols="6">
+                
+                <v-row>
+                  <h4 class="pl-4 pb-4">BACKEND</h4> 
+                </v-row>    
+                    <v-row v-for="data in userSkills.backend" :key="data" class="pl-1">
+                      <v-col cols="8">
+                        <v-progress-linear color="primary" :model-value="data.percent" height="20">
+                        </v-progress-linear>
+                      </v-col>                    
+                      <v-col cols="4">
+                        <div style="text-align: left;">{{data.name}}</div>
+                      </v-col>
+                    </v-row>
+  
+              </v-col> 
+  
+            </v-row>
+            <v-row class="pt-8">
               
-              <v-row>
-                <h4 class="pl-6 pb-4">DATABASE</h4> 
-              </v-row>    
-                  <v-row v-for="data in userSkills.database" :key="data" class="px-4">
-                    <v-col cols="8">
-                      <v-progress-linear :model-value="data.percent" height="20">
-                      </v-progress-linear>
-                    </v-col>                    
-                    <v-col cols="4">
-                      <div style="text-align: left;">{{data.name}}</div>
-                    </v-col>
-                  </v-row>
+              <v-col>
+                
+                <v-row>
+                  <h4 class="pl-4 pb-4">DATABASE</h4> 
+                </v-row>    
+                    <v-row v-for="data in userSkills.database" :key="data" class="pl-1">
+                      <v-col cols="8">
+                        <v-progress-linear color="primary" :model-value="data.percent" height="20">
+                        </v-progress-linear>
+                      </v-col>                    
+                      <v-col cols="4">
+                        <div style="text-align: left;">{{data.name}}</div>
+                      </v-col>
+                    </v-row>
+  
+              </v-col> 
+  
+              <v-col>
+                
+                <v-row>
+                  <h4 class="pl-4 pb-4">OTHERS</h4> 
+                </v-row>    
+                    <v-row v-for="data in userSkills.others" :key="data" class="pl-4">
+                      <v-col cols="8">
+                        <v-progress-linear color="primary" :model-value="data.percent" height="20">
+                        </v-progress-linear>
+                      </v-col>                    
+                      <v-col cols="4">
+                        <div style="text-align: left;">{{data.name}}</div>
+                      </v-col>
+                    </v-row>
+  
+              </v-col> 
+  
+            </v-row>
+  
+          </v-col>
+      </v-row>
+  
+      <v-row style="height: 20px;">
+  
+      </v-row>
+  
+      </v-card>
+    </v-container>
 
-            </v-col> 
-
-            <v-col>
-              
-              <v-row>
-                <h4 class="pl-6 pb-4">OTHERS</h4> 
-              </v-row>    
-                  <v-row v-for="data in userSkills.others" :key="data" class="px-4">
-                    <v-col cols="8">
-                      <v-progress-linear :model-value="data.percent" height="20">
-                      </v-progress-linear>
-                    </v-col>                    
-                    <v-col cols="4">
-                      <div style="text-align: left;">{{data.name}}</div>
-                    </v-col>
-                  </v-row>
-
-            </v-col> 
-
-          </v-row>
-
-        </v-col>
-    </v-row>
-
-    </v-card>
-  </v-container>
 </template>
 
 <script>
 import pic from "@/assets/images/photo.jpg"
+import { ref } from "vue";
+import { useTheme } from 'vuetify'
 
 export default {
-  setup: () => ({
-    userPhoto: pic,
-    principalTitle: "Gonzalo Sapei",
-    principalSubtitle: "Full Stack developer",
-    userAdress: "Tamarit 104 3º4ª, Barcelona",
-    userPhone: "+43 6341746-32",
-    userEmail: "gsapei@gmail.com",
-    userInstagram: "instagram.com/gsapei",
-    userLinkedIn: "linkedin.com/in/gonzalo-sapei-810065235/",
-    userGithub: "github.com/gsapei",
-    userFlickr: "flickr.com/gsapei/",
-    userEducation: "Técnico Superior en Informática Aplicada",
-    userEducationInstitute: "Instituto Normal Superior y Superior de Comercio Nro. 46",
-    userEducationYear: "2010 - 2014",
-    userDescription: `
+  setup() {
+    const userPhoto = pic;
+    const principalTitle = "Gonzalo Sapei";
+    const principalSubtitle = "Full-Stack developer";
+    const userAdress = "Tamarit 104 3º4ª, Barcelona";
+    const userPhone = "+43 6341746-32";
+    const userEmail = "gsapei@gmail.com";
+    const userInstagram = "instagram.com/gsapei";
+    const userLinkedIn = "linkedin.com/in/gonzalo-sapei-810065235/";
+    const userGithub = "github.com/gsapei";
+    const userFlickr = "flickr.com/gsapei/";
+    const userEducation = "Técnico Superior en Informática Aplicada";
+    const userEducationInstitute = "Instituto Normal Superior y Superior de Comercio Nro. 46";
+    const userEducationYear = "Año: 2010 - 2014";
+    const userDescription = `
       Desarrollador inteligente y creativo, autodidacta de mente inquieta.
       Apasionado desde pequeño por la informática y el arte, los cuales fui
       desarrollando de forma independiente. <br>
@@ -265,8 +301,8 @@ export default {
       aprender cualquier cosa que me proponga, soy muy responsable y
       perfeccionista. <br>
       Además de desarrollador soy músico multi-intrumentista, compositor,
-      fotógrafo, diseñador, dibujante, deportista`,
-    userExperience: `
+      fotógrafo, diseñador, dibujante, deportista`;
+    const userExperience = `
       <h4>AIRNET S.R.L.</h4>
       <p style="color: grey;">Año: 2009 - 2011</p>
       Colaboración en desarrollo de Sistemas e instalación de redes
@@ -297,71 +333,130 @@ export default {
       desarrollo de un video institucional tipo whiteboard para el sector,
       realizado en su totalidad en Illustrator y After Effects.
       Luego de un tiempo en el equipo se me fueron otorgando proyectos
-      como desarrollador full-stack en diversos lenguajes y frameworks.`,
-      languages: [
-        { name: 'spanish', percent: 100 }, 
-        { name: 'english', percent: 60 }
-      ],
-      userSkills: {
-          frontend: [
-            { name: 'html', percent: 90 },
-            { name: 'css/sass', percent: 90 },
-            { name: 'javascript', percent: 70 },
-            { name: 'vue.js', percent: 80 },
-            { name: 'quasar', percent: 90 },
-            { name: 'vuetify', percent: 90 },
-            { name: 'bootstrap', percent: 60 },  
-          ],
-          backend: [
-            { name: 'node.js', percent: 80 },  
-            { name: 'python', percent: 70 },  
-            { name: 'ruby', percent: 70 },  
-            { name: 'php', percent: 40 },  
-            { name: 'bash', percent: 40 },  
-            { name: 'c++', percent: 30 },  
-          ],  
-          database: [
-            { name: 'MySQL', percent: 60 },  
-            { name: 'OracleSQL', percent: 60 },  
-            { name: 'PostgreSQL', percent: 60 },  
-            { name: 'MongoDB', percent: 30 },  
-          ],
-          others: [
-            { name: 'Docker', percent: 60 },  
-            { name: 'GIT', percent: 60 },  
-          ]
+      como desarrollador full-stack en diversos lenguajes y frameworks.`;
+    const languages = [
+      { name: 'spanish', percent: 100 }, 
+      { name: 'english', percent: 60 }
+    ];
+    const userSkills = {
+        frontend: [
+          { name: 'html', percent: 90 },
+          { name: 'css/sass', percent: 90 },
+          { name: 'javascript', percent: 90 },
+          { name: 'vue.js', percent: 80 },
+          { name: 'quasar', percent: 80 },
+          { name: 'vuetify', percent: 70 },
+          { name: 'bootstrap', percent: 50 },  
+        ],
+        backend: [
+          { name: 'node.js', percent: 80 },  
+          { name: 'python', percent: 70 },  
+          { name: 'ruby', percent: 70 },  
+          { name: 'php', percent: 40 },  
+          { name: 'bash', percent: 40 },  
+          { name: 'c++', percent: 30 },  
+        ],  
+        database: [
+          { name: 'MySQL', percent: 60 },  
+          { name: 'OracleSQL', percent: 60 },  
+          { name: 'PostgreSQL', percent: 60 },  
+          { name: 'MongoDB', percent: 30 },  
+        ],
+        others: [
+          { name: 'Docker', percent: 60 },  
+          { name: 'GIT', percent: 60 },  
+        ]
 
-        }      
-  }),
+    };
+    const colorPicker = ref(false); 
+    const theme = useTheme();
+    const changeTheme = (newTheme) => {
+      theme.global.name.value = newTheme;
+      if(newTheme=='themeBlue'){ document.body.style.setProperty("--bg-color", 'none') }
+      if(newTheme=='themeGreen'){ document.body.style.setProperty("--bg-color", 'LightSeaGreen') }
+      if(newTheme=='themeGold'){ document.body.style.setProperty("--bg-color", 'Orange') }
+      if(newTheme=='themeBlack'){ document.body.style.setProperty("--bg-color", 'Black') }
+      colorPicker.value = false;
+    };
+    return {
+      userPhoto,
+      principalTitle,
+      principalSubtitle,
+      userAdress,
+      userPhone,
+      userEmail,
+      userInstagram,
+      userLinkedIn,
+      userGithub,
+      userFlickr,
+      userEducation,
+      userEducationInstitute,
+      userEducationYear,
+      userDescription,
+      userExperience,
+      languages,
+      userSkills,
+      colorPicker,
+      changeTheme,
+    }
+  },
 }
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
-  .principalContainer {
-    background: url('@/assets/images/background.jpg') no-repeat center center fixed !important;
-    background-size: cover; 
+  :root {
+      --bg-color: white;
+    }
+
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    //font-family: customFont;
+    background: url('@/assets/images/background.jpg') center center fixed !important;
+    background-size: 100%;
+  }
+  
+  .backgroundHue {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: hue;
+    background-color: var(--bg-color);
   }
 
-  .principalTitle{
-    font-size: 45pt;
-  }
-  .principalSubtitle{
-    font-size: 20pt;
-    color: lightblue;
-  }
-
-  .skillProgress {
-    background-color: lightblue;
-    color: black;
-  }
-
-  .divider {
+ .divider {
     width: 0;
     margin: 0 auto;
     height: 100%;
-    border: 3px solid lightblue;
+    border: 2px solid;
+  }
+
+  .colorPicker{
+    position: absolute !important;
+    width: 40px;
+    height: 160px;
+    top: 105px;
+    right: 75px;
+    z-index: 1;
+  }
+
+  h1{
+    font-size: 40pt;
+  }
+
+  h3{
+    font-size: 25px;
+  }
+
+  h2{
+    font-size: 14pt;
+  }
+
+  p{
+    font-size: 12pt;
   }
 
 </style>

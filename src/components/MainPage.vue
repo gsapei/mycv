@@ -1,31 +1,33 @@
 <template>
   <div class="background"/>
   <div class="backgroundHue"/>
-    <v-container class="py-10 px-15" fluid>
-  
-      <v-card class="colorPicker" v-if="colorPicker">
-          <v-col>
-            <v-row>
-              <v-btn size="small" color="blue" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlue')"></v-btn>
-            </v-row>
-            <v-row>
-              <v-btn size="small" color="green" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeGreen')"></v-btn>
-            </v-row>
-            <v-row>
-              <v-btn size="small" color="warning" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeGold')"></v-btn>
-            </v-row>
-            <v-row>
-              <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlack')"></v-btn>
-            </v-row>
-          </v-col>
-  
-      </v-card>
+    <v-container class="py-10 px-16 principal" fluid>
+      
+      <v-expand-transition>
+        <v-card class="colorPicker" v-if="colorPicker">
+            <v-col>
+              <v-row>
+                <v-btn size="small" color="blue" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlue')"></v-btn>
+              </v-row>
+              <v-row>
+                <v-btn size="small" color="green" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeGreen')"></v-btn>
+              </v-row>
+              <v-row>
+                <v-btn size="small" color="warning" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeGold')"></v-btn>
+              </v-row>
+              <v-row>
+                <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlack')"></v-btn>
+              </v-row>
+            </v-col>
+    
+        </v-card>
+      </v-expand-transition>
       
       <v-card class="pa-2">     
         
-        <v-card-actions>
+        <v-card-actions class="cardActions">
           <v-spacer></v-spacer>
-          <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-print"></v-btn>
+          <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-print" @click="printContainer()"></v-btn>
           <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-brush" @click="colorPicker=!colorPicker"></v-btn>
         </v-card-actions>
         
@@ -49,8 +51,8 @@
         </v-card-title>
           
         <v-row class="py-6">  
-                  
-          <v-col cols="4" class="px-4">
+          <!--- Left Paragraph ---->       
+          <v-col cols="4" class="px-4 leftParagraph">
   
             <v-row class="pa-4">
               <v-col cols="12">
@@ -63,7 +65,7 @@
                     <v-icon color="primary" icon="fa-sharp fa-solid fa-house"></v-icon>
                   </v-col>
                   <v-col cols="10" style="text-align: right;">
-                    <h4 style="color: gray;"> {{ userAdress }} </h4>
+                    <p style="color: gray;"> {{ userAdress }} </p>
                   </v-col>
                 </v-row>
                 
@@ -72,7 +74,7 @@
                     <v-icon color="primary" icon="fa-solid fa-mobile"></v-icon>
                   </v-col>
                   <v-col cols="10" style="text-align: right;">
-                    <h4 style="color: gray;"> {{ userPhone }} </h4>
+                    <p style="color: gray;"> {{ userPhone }} </p>
                   </v-col>
                 </v-row>
                 
@@ -81,7 +83,7 @@
                     <v-icon color="primary" icon="fa-solid fa-envelope"></v-icon>
                   </v-col>
                   <v-col cols="10" style="text-align: right;">
-                    <h4 style="color: gray;"> {{ userEmail }} </h4>
+                    <p style="color: gray;"> {{ userEmail }} </p>
                   </v-col>
                 </v-row>          
               
@@ -90,7 +92,7 @@
                     <v-icon color="primary" icon="fa-brands fa-square-instagram"></v-icon>
                   </v-col>
                   <v-col cols="10" style="text-align: right;">
-                    <h4 style="color: gray;"> {{ userInstagram }} </h4>
+                    <p style="color: gray;"> {{ userInstagram }} </p>
                   </v-col>
                 </v-row> 
                 
@@ -99,7 +101,7 @@
                     <v-icon color="primary" icon="fa-brands fa-linkedin"></v-icon>
                   </v-col>
                   <v-col cols="10" style="text-align: right;">
-                    <h4 style="color: gray;"> {{ userLinkedIn }} </h4>
+                    <p style="color: gray;"> {{ userLinkedIn }} </p>
                   </v-col>
                 </v-row> 
   
@@ -108,7 +110,7 @@
                     <v-icon color="primary" icon="fa-brands fa-github"></v-icon>
                   </v-col>
                   <v-col cols="10" style="text-align: right;">
-                    <h4 style="color: gray;"> {{ userGithub }} </h4>
+                    <p style="color: gray;"> {{ userGithub }} </p>
                   </v-col>
                 </v-row>   
   
@@ -117,7 +119,7 @@
                     <v-icon color="primary" icon="fa-brands fa-flickr"></v-icon>
                   </v-col>
                   <v-col cols="10" style="text-align: right;">
-                    <h4 style="color: gray;"> {{ userFlickr }} </h4>
+                    <p style="color: gray;"> {{ userFlickr }} </p>
                   </v-col>
                 </v-row>            
               </v-col>
@@ -128,9 +130,9 @@
             </v-row>
   
             <v-row>
-              <h3 class="px-8">
+              <h4 class="px-8">
                 {{ userEducation }}
-              </h3> 
+              </h4> 
               <p class="px-8" style="color: gray; text-align: justify;">
                 {{ userEducationInstitute }}
               </p>            
@@ -148,26 +150,27 @@
             :key="lang.name"
             class="px-6"
             >
-              <v-col cols="4">
-                <div>{{ lang.name.toUpperCase() }}</div>      
-              </v-col>
-              <v-col cols="8">
-                <v-progress-linear color="primary"
-                  :model-value="lang.percent"
-                  height="20"
+              <v-col>
+                <v-progress-linear color="primary" rounded
+                :model-value="lang.percent"
+                height="20"
                 >
+                <div class="progressLabel">{{ lang.name }}</div>      
                 </v-progress-linear>
+                <div class="progressPrinted">{{lang.name.toUpperCase()}}: <b> {{ lang.percent }}%</b></div>
               </v-col>
   
             </v-row>                 
           
           </v-col>
   
-          <v-col cols="1" class="pt-6">
+          <!--- Divider --->
+          <v-col cols="1" class="pt-6 centerParagraph">
             <div class="divider text-primary"></div>  
           </v-col>
           
-          <v-col cols="7" class="px-8">
+          <!--- Right Paragraph --->
+          <v-col cols="7" class="px-8 rightParagraph">
             <v-row>
               <h2 class="px-4 py-4">INTRODUCTION</h2> 
             </v-row>
@@ -194,13 +197,12 @@
                   <h4>FRONTEND</h4> 
                 </v-row>    
                     <v-row v-for="data in userSkills.frontend" :key="data" class="pl-1">
-                      <v-col cols="8">
-                        <v-progress-linear color="primary" :model-value="data.percent" height="20">
+                      <v-col>
+                        <v-progress-linear color="primary" rounded :model-value="data.percent" height="20">
+                          <div class="progressLabel">{{data.name}}</div>
                         </v-progress-linear>
+                        <div class="progressPrinted">{{data.name.toUpperCase()}}: <b> {{ data.percent }}%</b></div>
                       </v-col>                    
-                      <v-col cols="4">
-                        <div style="text-align: left;">{{data.name}}</div>
-                      </v-col>
                     </v-row>
   
               </v-col> 
@@ -211,13 +213,12 @@
                   <h4 class="pl-4 pb-4">BACKEND</h4> 
                 </v-row>    
                     <v-row v-for="data in userSkills.backend" :key="data" class="pl-1">
-                      <v-col cols="8">
-                        <v-progress-linear color="primary" :model-value="data.percent" height="20">
+                      <v-col>
+                        <v-progress-linear color="primary" rounded :model-value="data.percent" height="20">
+                          <div class="progressLabel">{{data.name}}</div>
                         </v-progress-linear>
+                        <div class="progressPrinted">{{data.name.toUpperCase()}}: <b> {{ data.percent }}%</b></div>
                       </v-col>                    
-                      <v-col cols="4">
-                        <div style="text-align: left;">{{data.name}}</div>
-                      </v-col>
                     </v-row>
   
               </v-col> 
@@ -231,13 +232,12 @@
                   <h4 class="pl-4 pb-4">DATABASE</h4> 
                 </v-row>    
                     <v-row v-for="data in userSkills.database" :key="data" class="pl-1">
-                      <v-col cols="8">
-                        <v-progress-linear color="primary" :model-value="data.percent" height="20">
+                      <v-col>
+                        <v-progress-linear color="primary" rounded :model-value="data.percent" height="20">
+                          <div class="progressLabel">{{data.name}}</div>
                         </v-progress-linear>
+                        <div class="progressPrinted">{{data.name.toUpperCase()}}: <b> {{ data.percent }}%</b></div>
                       </v-col>                    
-                      <v-col cols="4">
-                        <div style="text-align: left;">{{data.name}}</div>
-                      </v-col>
                     </v-row>
   
               </v-col> 
@@ -248,13 +248,12 @@
                   <h4 class="pl-4 pb-4">OTHERS</h4> 
                 </v-row>    
                     <v-row v-for="data in userSkills.others" :key="data" class="pl-4">
-                      <v-col cols="8">
-                        <v-progress-linear color="primary" :model-value="data.percent" height="20">
+                      <v-col>
+                        <v-progress-linear color="primary" rounded :model-value="data.percent" height="20">
+                          <div class="progressLabel">{{data.name}}</div>
                         </v-progress-linear>
+                        <div class="progressPrinted">{{data.name.toUpperCase()}}: <b> {{ data.percent }}%</b></div>
                       </v-col>                    
-                      <v-col cols="4">
-                        <div style="text-align: left;">{{data.name}}</div>
-                      </v-col>
                     </v-row>
   
               </v-col> 
@@ -264,9 +263,7 @@
           </v-col>
       </v-row>
   
-      <v-row style="height: 20px;">
-  
-      </v-row>
+      <v-row style="height: 20px;"/>
   
       </v-card>
     </v-container>
@@ -378,6 +375,15 @@ export default {
       if(newTheme=='themeBlack'){ document.body.style.setProperty("--bg-color", 'Black') }
       colorPicker.value = false;
     };
+    function printContainer(){
+      let actualTheme = theme.global.name.value;
+      changeTheme('themeBlack');
+      setTimeout(function () {
+        window.print();
+        changeTheme(actualTheme);
+        }, 
+      100);
+    }
     return {
       userPhoto,
       principalTitle,
@@ -398,6 +404,7 @@ export default {
       userSkills,
       colorPicker,
       changeTheme,
+      printContainer
     }
   },
 }
@@ -406,8 +413,10 @@ export default {
 
 <style scoped lang="scss">
 
-  :root {
-      --bg-color: white;
+@media screen{
+    .principal{
+      padding-left: 150px !important;
+      padding-right: 150px !important;
     }
 
   .background {
@@ -438,13 +447,22 @@ export default {
     position: absolute !important;
     width: 40px;
     height: 160px;
-    top: 105px;
-    right: 75px;
+    top: 40px;
+    right: 105px;
     z-index: 1;
   }
 
+  .progressLabel{
+    color: white;
+    //sombras en las 4 esquinas
+    text-shadow: -1px -1px 1px rgba(0,0,0,.6), 
+                 -1px 1px 1px rgba(0,0,0,.6), 
+                 1px -1px 1px rgba(0,0,0,.6), 
+                 1px 1px 1px rgba(0,0,0,.6);
+  }
+
   h1{
-    font-size: 40pt;
+    font-size: 45pt;
   }
 
   h3{
@@ -458,5 +476,43 @@ export default {
   p{
     font-size: 12pt;
   }
+}
+
+  @media print {
+    .background {background-color:#FFFFFF;}
+    .principal{
+      padding: 0px !important;
+      margin: 0px !important;
+    }
+    h1{
+      font-size: 35pt;
+    }
+
+    .cardActions{
+      display: none;
+    }
+    .progressLabel{
+      color: black;
+      text-shadow: 0px;
+    }
+    .rightParagraph{
+      min-width: 45%;
+    }
+    .centerParagraph{
+      display: none;
+    }
+
+    .leftParagraph{
+      min-width: 40%;
+    }
+
+    .v-progress-linear {
+      display: none;
+    }
+
+    .progressPrinted {
+      display: block;
+    }
+  }  
 
 </style>

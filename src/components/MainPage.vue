@@ -476,6 +476,11 @@ export default {
   p{
     font-size: 12pt;
   }
+
+  .progressPrinted {
+      display: none;
+    }
+
 }
 
   @media print {

@@ -151,9 +151,9 @@
             class="px-6"
             >
               <v-col>
-                <v-progress-linear color="primary" rounded
+                <v-progress-linear color="primary" 
                 :model-value="lang.percent"
-                height="20"
+                height="25"
                 >
                 <div class="progressLabel">{{ lang.name }}</div>      
                 </v-progress-linear>
@@ -198,10 +198,10 @@
                 </v-row>    
                     <v-row v-for="data in userSkills.frontend" :key="data" class="pl-1">
                       <v-col>
-                        <v-progress-linear color="primary" rounded :model-value="data.percent" height="20">
+                        <v-progress-linear color="primary"  :model-value="data.percent" height="25">
                           <div class="progressLabel">{{data.name}}</div>
                         </v-progress-linear>
-                        <div class="progressPrinted">{{data.name.toUpperCase()}}: <b> {{ data.percent }}%</b></div>
+                        <span class="progressPrinted">{{data.name.toUpperCase()}}: <b> {{ data.percent }}%</b></span>
                       </v-col>                    
                     </v-row>
   
@@ -214,7 +214,7 @@
                 </v-row>    
                     <v-row v-for="data in userSkills.backend" :key="data" class="pl-1">
                       <v-col>
-                        <v-progress-linear color="primary" rounded :model-value="data.percent" height="20">
+                        <v-progress-linear color="primary"  :model-value="data.percent" height="25">
                           <div class="progressLabel">{{data.name}}</div>
                         </v-progress-linear>
                         <div class="progressPrinted">{{data.name.toUpperCase()}}: <b> {{ data.percent }}%</b></div>
@@ -233,7 +233,7 @@
                 </v-row>    
                     <v-row v-for="data in userSkills.database" :key="data" class="pl-1">
                       <v-col>
-                        <v-progress-linear color="primary" rounded :model-value="data.percent" height="20">
+                        <v-progress-linear color="primary"  :model-value="data.percent" height="25">
                           <div class="progressLabel">{{data.name}}</div>
                         </v-progress-linear>
                         <div class="progressPrinted">{{data.name.toUpperCase()}}: <b> {{ data.percent }}%</b></div>
@@ -249,7 +249,7 @@
                 </v-row>    
                     <v-row v-for="data in userSkills.others" :key="data" class="pl-4">
                       <v-col>
-                        <v-progress-linear color="primary" rounded :model-value="data.percent" height="20">
+                        <v-progress-linear color="primary"  :model-value="data.percent" height="25">
                           <div class="progressLabel">{{data.name}}</div>
                         </v-progress-linear>
                         <div class="progressPrinted">{{data.name.toUpperCase()}}: <b> {{ data.percent }}%</b></div>

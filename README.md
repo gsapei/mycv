@@ -13,4 +13,8 @@ Components available (as HTML tags):
 <userSkills/>
 <userEducation/>
 <userLanguages/>
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 005f9c260ffdf80ee54f1a08990180c7cee64a61

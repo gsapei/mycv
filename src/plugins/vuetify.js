@@ -31,7 +31,7 @@ const themeGold = {
 const themeBlack = {
   dark: false,
   colors: {
-    primary: '#000000',
+    primary: '#161617',
   },
 }
 

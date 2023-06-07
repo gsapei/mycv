@@ -3,3 +3,167 @@
     src: url(../assets/Myriad_Pro_Light.otf);
   }
 
+
+@media screen{
+  .principal{
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+  }
+
+  .principalCard{
+    min-width: 760px;
+  }
+
+  .principalHeader{
+    text-align: center;
+  }
+
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    //font-family: customFont;
+    background: url('@/assets/images/background.jpg') center center fixed !important;
+    background-size: 100%;
+  }
+  
+  .backgroundHue {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: hue;
+    background-color: var(--bg-color);
+    transition-duration: 1s;
+  }
+
+  .divider {
+    width: 0;
+    margin: 0 auto;
+    height: 100%;
+    border: 2px solid;
+  }
+
+  .colorPicker{
+    position: absolute !important;
+    width: 40px;
+    height: 160px;
+    top: 40px;
+    right: 105px;
+    z-index: 1;
+  }
+
+  .progressLabel{
+    color: white;
+    //sombras en las 4 esquinas
+    text-shadow: -1px -1px 1px rgba(0,0,0,.6), 
+    -1px 1px 1px rgba(0,0,0,.6), 
+                1px -1px 1px rgba(0,0,0,.6), 
+                1px 1px 1px rgba(0,0,0,.6);
+ }
+ 
+ .progressPrinted {
+     display: none;
+ }
+
+
+
+  h1{
+    font-size: 45pt;
+    font-family: customfont;
+  }
+  
+  h2{
+    font-size: 19pt;
+    font-family: customfont;
+
+  }
+
+  h3{
+    font-size: 25px;
+    font-family: customfont;
+  }
+
+  p{
+    font-size: 12pt;
+    text-align: justify;
+  }
+
+  .userAvatar{
+    
+    &:hover {
+      transform: scale(1.1);
+      transition-duration: 0.5s;
+    } 
+    &:not(:hover) {
+      transform: scale(1);
+      transition-duration: 0.5s;
+    }    
+  }
+
+}
+
+@media print {
+  .background {background-color:#FFFFFF;}
+
+  .principal{
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+
+  .dontBreakOnPrint{
+    break-inside: avoid;
+  }
+
+  .principalHeader{
+    text-align: left;
+  }
+
+  h1{
+    font-size: 35pt;
+    font-family: customfont;
+  }
+  
+  h2{
+    font-size: 19pt;
+    font-family: customfont;
+
+  }
+
+  h3{
+    font-size: 25px;
+    font-family: customfont;
+  }
+
+  p{
+    font-size: 12pt;
+    text-align: justify;
+  }
+
+  .cardActions{
+    display: none;
+  }
+  .rightParagraph{
+    min-width: 45%;
+  }
+  .centerParagraph{
+    display: none;
+  }
+
+  .leftParagraph{
+    min-width: 40%;
+  }
+  
+  .progressLabel{
+    color: black;
+    text-shadow: 0px;
+  }
+
+  .v-progress-linear {
+    display: none;
+  }
+
+  .progressPrinted {
+    display: block;
+  }  
+
+}  

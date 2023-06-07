@@ -1,5 +1,14 @@
-# mycv Vue3 template
+# myCV - Vue3 template
 This's a template for my own curriculum vitae. Made for VueJS 3 (vite) and vuetify 3
 
-### usage
-For customization just edit the MainPage.vue file and set variable values using your own data. It's very intuitive!
+### Usage
+For customization just edit the **UserData.vue** file with your own data. 
+And also you can edit **MainPage.vue** to change the order of the components. It's very intuitive!
+
+Components available (as HTML tags):
+><userDescription/>
+><userExperience/>
+><userContact/>
+><userSkills/>
+><userEducation/>
+><userLanguages/>

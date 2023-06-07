@@ -11,7 +11,7 @@
             <v-icon color="primary" icon="fa-sharp fa-solid fa-house"></v-icon>
           </v-col>
           <v-col cols="11">
-            <p class="px-3"> {{ userAdress }} </p>
+            <p class="px-2"> {{ userAdress }} </p>
           </v-col>
         </v-row>
         
@@ -20,7 +20,7 @@
             <v-icon color="primary" icon="fa-solid fa-mobile"></v-icon>
           </v-col>
           <v-col cols="11">
-            <p class="px-3"> {{ userPhone }} </p>
+            <p class="px-2"> {{ userPhone }} </p>
           </v-col>
         </v-row>
         
@@ -29,7 +29,7 @@
             <v-icon color="primary" icon="fa-solid fa-envelope"></v-icon>
           </v-col>
           <v-col cols="11">
-            <p class="px-3"> {{ userEmail }} </p>
+            <p class="px-2"> {{ userEmail }} </p>
           </v-col>
         </v-row>          
       
@@ -38,7 +38,7 @@
             <v-icon color="primary" icon="fa-brands fa-square-instagram"></v-icon>
           </v-col>
           <v-col cols="11">
-            <p class="px-3"> {{ userInstagram }} </p>
+            <p class="px-2"> {{ userInstagram }} </p>
           </v-col>
         </v-row> 
         
@@ -47,7 +47,7 @@
             <v-icon color="primary" icon="fa-brands fa-linkedin"></v-icon>
           </v-col>
           <v-col cols="11">
-            <p class="px-3"> {{ userLinkedIn }} </p>
+            <p class="px-2"> {{ userLinkedIn }} </p>
           </v-col>
         </v-row> 
 
@@ -56,7 +56,7 @@
             <v-icon color="primary" icon="fa-brands fa-github"></v-icon>
           </v-col>
           <v-col cols="11">
-            <p class="px-3"> {{ userGithub }} </p>
+            <p class="px-2"> {{ userGithub }} </p>
           </v-col>
         </v-row>   
 
@@ -65,7 +65,7 @@
             <v-icon color="primary" icon="fa-brands fa-flickr"></v-icon>
           </v-col>
           <v-col cols="11">
-            <p class="px-3"> {{ userFlickr }} </p>
+            <p class="px-2"> {{ userFlickr }} </p>
           </v-col>
         </v-row>   
 

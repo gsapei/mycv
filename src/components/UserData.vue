@@ -5,7 +5,7 @@ const userData = {
     userPhoto: pic,
     userName: "Gonzalo Sapei",
     userPosition: "Full-Stack developer",
-    userAdress: "Ronda Ginardó 38, Barcelona",
+    userAdress: "Ronda Ginardó 38 8ºD, Barcelona",
     userPhone: "+43 6341746-32",
     userEmail: "gsapei@gmail.com",
     userInstagram: "instagram.com/gsapei",

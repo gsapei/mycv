@@ -7,16 +7,36 @@
         <v-card class="colorPicker" v-if="colorPicker">
             <v-col>
               <v-row>
-                <v-btn size="small" color="blue" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlue')"></v-btn>
+                <v-btn v-if="selectedTheme == 'themeBlue'" size="small" color="blue" variant="text" icon="fa-solid fa-palette" @click="colorPicker=false">
+                  <v-badge dot bordered overlap color="red" style="top:10px;">
+                      <v-icon>fa-solid fa-palette</v-icon>
+                  </v-badge>
+                </v-btn>  
+                <v-btn v-else size="small" color="blue" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlue')"></v-btn>
               </v-row>
               <v-row>
-                <v-btn size="small" color="green" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeGreen')"></v-btn>
+                <v-btn v-if="selectedTheme == 'themeGreen'" size="small" color="green" variant="text" icon="fa-solid fa-palette" @click="colorPicker=false">
+                  <v-badge bordered overlap color="red" style="top:10px;" dot>
+                      <v-icon>fa-solid fa-palette</v-icon>
+                  </v-badge>
+                </v-btn>  
+                <v-btn v-else size="small" color="green" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeGreen')"></v-btn>
               </v-row>
               <v-row>
-                <v-btn size="small" color="warning" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeGold')"></v-btn>
+                <v-btn v-if="selectedTheme == 'themeGold'" size="small" color="warning" variant="text" icon="fa-solid fa-palette" @click="colorPicker=false">
+                  <v-badge bordered overlap color="red" style="top:10px;" dot>
+                      <v-icon>fa-solid fa-palette</v-icon>
+                  </v-badge>
+                </v-btn> 
+                <v-btn v-else size="small" color="warning" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeGold')"></v-btn>
               </v-row>
               <v-row>
-                <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlack')"></v-btn>
+                <v-btn v-if="selectedTheme == 'themeBlack'" size="small" color="black" variant="text" icon="fa-solid fa-palette" @click="colorPicker=false">
+                  <v-badge bordered overlap color="red" style="top:10px;" dot>
+                      <v-icon>fa-solid fa-palette</v-icon>
+                  </v-badge>
+                </v-btn> 
+                <v-btn v-else size="small" color="surface-variant" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlack')"></v-btn>
               </v-row>
             </v-col>
     
@@ -117,28 +137,35 @@ export default {
     const principalTitle=userData.userName;
     const principalSubtitle=userData.userPosition;
 
+    const selectedTheme = ref('themeBlue');
     const colorPicker = ref(false); 
     const theme = useTheme();
     const changeTheme = (newTheme) => {
       theme.global.name.value = newTheme;
-      if(newTheme=='themeBlue'){ document.body.style.setProperty("--bg-color", 'none') }
+      if(newTheme=='themeBlue'){ 
+        document.body.style.setProperty("--bg-color", 'none');
+        selectedTheme.value = newTheme;
+      }
       if(newTheme=='themeGreen'){ 
         document.body.style.setProperty("--bg-color", 'none');
         setTimeout(function () {
           document.body.style.setProperty("--bg-color", 'LightSeaGreen') 
         }, 1000);
+        selectedTheme.value = newTheme;
       }
       if(newTheme=='themeGold'){ 
         document.body.style.setProperty("--bg-color", 'none');
         setTimeout(function () {
           document.body.style.setProperty("--bg-color", 'Coral') 
         }, 1000);
+        selectedTheme.value = newTheme;
       }
       if(newTheme=='themeBlack'){ 
         document.body.style.setProperty("--bg-color", 'none');
         setTimeout(function () {
           document.body.style.setProperty("--bg-color", 'Black') 
         }, 1000);
+        selectedTheme.value = newTheme;
       }
       colorPicker.value = false;
     };
@@ -160,7 +187,8 @@ export default {
       principalSubtitle,
       colorPicker,
       changeTheme,
-      printContainer
+      selectedTheme,
+      printContainer,
     }
   },
   components: {

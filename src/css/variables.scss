@@ -12,6 +12,7 @@
 
   .principalCard{
     min-width: 760px;
+    opacity: 90%;
   }
 
   .principalHeader{
@@ -46,9 +47,9 @@
   .colorPicker{
     position: absolute !important;
     width: 40px;
-    height: 160px;
+    height: 162px;
     top: 40px;
-    right: 105px;
+    right: 90px;
     z-index: 1;
   }
 
@@ -165,5 +166,9 @@
   .progressPrinted {
     display: block;
   }  
+
+  .colorPicker{
+    display: none;
+  }
 
 }  

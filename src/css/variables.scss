@@ -1,6 +1,6 @@
 @font-face {
     font-family: customFont;
-    src: url(../assets/Myriad_Pro_Light.otf);
+    src: url(../assets/TestSöhne-Buch.otf);
   }
 
 
@@ -60,6 +60,11 @@
     -1px 1px 1px rgba(0,0,0,.6), 
                 1px -1px 1px rgba(0,0,0,.6), 
                 1px 1px 1px rgba(0,0,0,.6);
+ }
+
+ .cardActions{
+  position: absolute;
+  right:0px;
  }
  
  .progressPrinted {

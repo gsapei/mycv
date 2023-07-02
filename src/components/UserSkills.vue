@@ -6,97 +6,49 @@
 
     <v-row>
       
-      <v-col cols="5">
-        
-        <v-row class="pb-4">
-          <h4>FRONTEND</h4> 
-        </v-row>    
-        
-        <v-row v-for="data in userSkills.frontend" :key="data" class="pb-2">
-              
-          <v-progress-linear color="primary"  :model-value="data.percent" height="25">
-            <div class="progressLabel">{{data.name}}</div>
-          </v-progress-linear>
-          <div class="progressPrinted">
-            <p>
-              {{data.name.toUpperCase()}}: 
-            </p>
-            <p> <b> {{ data.percent }}%</b> </p>
-          </div>
-                   
-        </v-row>
+      <v-col v-for="(skillCategory, i) in userSkills" :key="skillCategory" class="pb-8" cols="6">
+        <div v-if="i%2!=0" class="pl-6 pr-0">
+          <v-row>
+            <h4 class="pb-4">{{skillCategory.category.toUpperCase()}}</h4> 
+          </v-row>
+          
+          <v-row v-for="data in skillCategory.skills" :key="data" class="pb-2 px-1">
+                
+            <v-progress-linear color="primary" :model-value="data.percent" height="25">
+              <div class="progressLabel">{{data.name}}</div>
+            </v-progress-linear>
 
-      </v-col> 
+            <div class="progressPrinted">
+              <p>
+                {{data.name.toUpperCase()}}: 
+              </p>
+              <p> <b> {{ data.percent }}%</b> </p>
+            </div>
+                    
+          </v-row>
+        </div>
+        <div v-else class="pr-6 pl-0">
+          <v-row>
+            <h4 class="pb-4">{{skillCategory.category.toUpperCase()}}</h4> 
+          </v-row>
+          
+          <v-row v-for="data in skillCategory.skills" :key="data" class="pb-2 px-1">
+                
+            <v-progress-linear color="primary" :model-value="data.percent" height="25">
+              <div class="progressLabel">{{data.name}}</div>
+            </v-progress-linear>
 
-      <v-col cols="2"/>
-
-      <v-col cols="5">
-        
-        <v-row class="pb-4">
-          <h4>BACKEND</h4> 
-        </v-row>    
-
-        <v-row v-for="data in userSkills.backend" :key="data" class="pb-2">
-          <v-progress-linear color="primary"  :model-value="data.percent" height="25">
-            <div class="progressLabel">{{data.name}}</div>
-          </v-progress-linear>
-          <div class="progressPrinted">
-            <p>
-              {{data.name.toUpperCase()}}: 
-            </p>
-            <p> <b> {{ data.percent }}%</b> </p>
-          </div>
-        </v-row>
-
-      </v-col> 
-
-    </v-row>
-    
-    <v-row class="pt-8">
-      
-      <v-col cols="5">
-        
-        <v-row class="pb-4">
-          <h4>DATABASES</h4> 
-        </v-row>    
-        
-        <v-row v-for="data in userSkills.database" :key="data" class="pb-2">
-              
-          <v-progress-linear color="primary"  :model-value="data.percent" height="25">
-            <div class="progressLabel">{{data.name}}</div>
-          </v-progress-linear>
-          <div class="progressPrinted">
-            <p>
-              {{data.name.toUpperCase()}}: 
-            </p>
-            <p> <b> {{ data.percent }}%</b> </p>
-          </div>
-                   
-        </v-row>
-
-      </v-col> 
-
-      <v-col cols="2"/>
-
-      <v-col cols="5">
-        
-        <v-row class="pb-4">
-          <h4>OTHERS</h4> 
-        </v-row>    
-
-        <v-row v-for="data in userSkills.others" :key="data" class="pb-2">
-          <v-progress-linear color="primary"  :model-value="data.percent" height="25">
-            <div class="progressLabel">{{data.name}}</div>
-          </v-progress-linear>
-          <div class="progressPrinted">
-            <p>
-              {{data.name.toUpperCase()}}: 
-            </p>
-            <p> <b> {{ data.percent }}%</b> </p>
-          </div>
-        </v-row>
-
-      </v-col> 
+            <div class="progressPrinted">
+              <p>
+                {{data.name.toUpperCase()}}: 
+              </p>
+              <p> <b> {{ data.percent }}%</b> </p>
+            </div>
+                    
+          </v-row>
+        </div>
+          
+        </v-col> 
 
     </v-row>
 

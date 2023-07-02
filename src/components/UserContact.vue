@@ -3,7 +3,7 @@
       <v-col>
 
         <v-row>
-          <h2>CONTACT ME</h2> 
+          <h2>CONTACT</h2> 
         </v-row>
         
         <v-row>
@@ -31,43 +31,36 @@
           <v-col cols="11">
             <p class="px-2"> {{ userEmail }} </p>
           </v-col>
-        </v-row>          
+        </v-row>
+
+        <v-row class="pt-6 notPrintable">
+          <h2>SOCIAL MEDIA</h2> 
+        </v-row>        
       
         <v-row>
-          <v-col cols="1" class="px-0">
-            <v-icon color="primary" icon="fa-brands fa-square-instagram"></v-icon>
+          <v-col cols="3" class="px-0">
+            <a :href="'https://' + userInstagram">
+              <v-icon color="primary" icon="fa-brands fa-square-instagram"></v-icon>
+            </a>
           </v-col>
-          <v-col cols="11">
-            <p class="px-2"> {{ userInstagram }} </p>
+          <v-col cols="3" class="px-0">
+            <a :href="'https://' + userLinkedIn">
+              <v-icon color="primary" icon="fa-brands fa-linkedin"></v-icon>
+            </a>
           </v-col>
-        </v-row> 
-        
-        <v-row>
-          <v-col cols="1" class="px-0">
-            <v-icon color="primary" icon="fa-brands fa-linkedin"></v-icon>
+          <v-col cols="3" class="px-0">
+            <a :href="'https://' + userGithub">
+              <v-icon color="primary" icon="fa-brands fa-github"></v-icon>
+            </a>
           </v-col>
-          <v-col cols="11">
-            <p class="px-2"> {{ userLinkedIn }} </p>
+          <v-col cols="3" class="px-0">
+            <a :href="'https://' + userFlickr">
+              <v-icon color="primary" icon="fa-brands fa-flickr"></v-icon>
+            </a>
           </v-col>
-        </v-row> 
 
-        <v-row>
-          <v-col cols="1" class="px-0">
-            <v-icon color="primary" icon="fa-brands fa-github"></v-icon>
-          </v-col>
-          <v-col cols="11">
-            <p class="px-2"> {{ userGithub }} </p>
-          </v-col>
-        </v-row>   
-
-        <v-row>
-          <v-col cols="1" class="px-0">
-            <v-icon color="primary" icon="fa-brands fa-flickr"></v-icon>
-          </v-col>
-          <v-col cols="11">
-            <p class="px-2"> {{ userFlickr }} </p>
-          </v-col>
-        </v-row>   
+          
+        </v-row> 
 
       </v-col>
     </v-row> 

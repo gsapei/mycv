@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { userData }from '@/components/userData.vue'
+import { userData }from '@/components/userDataSapei.vue'
 
 export default {
   name: "userDescription",

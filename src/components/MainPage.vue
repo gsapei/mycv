@@ -39,7 +39,6 @@
               <v-btn v-else size="small" color="surface-variant" variant="text" icon="fa-solid fa-palette" @click="changeTheme('themeBlack')"></v-btn>
             </v-row>
           </v-col>
-  
       </v-card>
     </v-slide-x-transition>
     
@@ -48,7 +47,7 @@
       <v-card-actions class="notPrintable">
         <v-spacer></v-spacer>
         <v-btn class="actionButton" size="small" style="font-size: 1.1vw;" variant="text" icon="fa-solid fa-print" @click="printContainer()"></v-btn>
-        <v-btn class="actionButton" size="small" style="font-size: 1.1vw;" variant="text" icon="fa-solid fa-brush" @click="colorPicker=!colorPicker"></v-btn>
+        <v-btn class="actionButton" size="small" style="font-size: 1.1vw;" variant="text" icon="fa-solid fa-brush" @click="showColorPicker()"></v-btn>
       </v-card-actions>
       
       <v-card-title>
@@ -135,7 +134,7 @@
 <script>
 import { ref } from "vue";
 import { useTheme } from 'vuetify'
-import { userData } from '@/components/userData.vue'
+import { userData } from '@/components/userDataSapei.vue'
 import userSkills from '@/components/userSkills.vue'
 import userLanguages from '@/components/userLanguages.vue'
 import userExperience from '@/components/userExperience.vue'
@@ -152,8 +151,13 @@ export default {
 
     const selectedTheme = ref('themeBlue');
     const colorPicker = ref(false);
-    const noBackground = ref(false);
     const theme = useTheme();
+
+    const showColorPicker = () => {
+      colorPicker.value=!colorPicker.value;
+      const position = document.getElementsByClassName('principalCard')[0].getBoundingClientRect().right;
+      setTimeout(() => document.getElementsByClassName('colorPicker')[0].style.left = position + 2 +'px', 10);
+    }
 
     const changeTheme = (newTheme) => {
       theme.global.name.value = newTheme;
@@ -205,7 +209,8 @@ export default {
       colorPicker,
       changeTheme,
       selectedTheme,
-      printContainer
+      printContainer,
+      showColorPicker
     }
   },
   components: {

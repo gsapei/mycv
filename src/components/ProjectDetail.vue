@@ -5,7 +5,7 @@
                 <v-icon color="primary" icon="fa-brands fa-github"></v-icon>
             </a>
         </v-card-action>
-        <v-card-title class="text-center pb-6" justify="center">
+        <v-card-title class="text-center pb-8" justify="center">
             <h1 class="py-1"> {{ project.name }} </h1>
         </v-card-title>
         <v-card-text>
@@ -22,7 +22,7 @@
 
             <v-row>
                 <v-col>
-                    <div v-for="(image, index) in project.images" :key="image" style="text-align: center;" class="pr-2">
+                    <div v-for="(image, index) in project.images" :key="image" style="text-align: center;" class="pb-2">
                         <img v-if="index>0" :src="getImageUrl(image)" style="max-width: 100%;"/>
                     </div>
                 </v-col>

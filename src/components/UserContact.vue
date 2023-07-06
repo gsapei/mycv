@@ -37,7 +37,7 @@
           <h2 class="text-primary">SOCIAL MEDIA</h2> 
         </v-row>        
       
-        <v-row>
+        <v-row class="notPrintable">
           <v-col cols="3" class="px-0">
             <a :href="'https://' + userInstagram">
               <v-icon color="primary" icon="fa-brands fa-square-instagram" class="icons"></v-icon>
@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import { userData }from '@/components/userData.vue'
+import { userData }from '@/components/userDataSapei.vue'
 import { ref } from 'vue'
 
 export default {

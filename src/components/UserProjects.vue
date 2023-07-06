@@ -6,9 +6,17 @@
 
     <v-row class="dontBreakOnPrint">
       <v-col v-for="data in userProjects" :key="data.name" class="px-1" cols="6">
-        <v-card class="text-center py-2 projectCard" elevation="2" @click="openProject(data)">
-          <h4 class="pb-2"> {{ data.name }} </h4>
-          <img :src="getImageUrl(data.images[0])" style="max-width: 100%;" class="px-3" />
+        <v-card class="text-center pt-2 projectCard" elevation="2" @click="openProject(data)">
+          <v-row>
+            <v-col>
+              <h4> {{ data.name }} </h4>
+            </v-col>
+          </v-row>
+          <v-row style="min-height: 100%;">
+            <v-col>
+              <img :src="getImageUrl(data.images[0])" style="max-width: 100%;" class="px-3" />
+            </v-col>
+          </v-row>
         </v-card>
       </v-col>
     </v-row>  
@@ -21,7 +29,7 @@
 </template>
 
 <script>
-import { userData }from '@/components/userData.vue'
+import { userData }from '@/components/userDataSapei.vue'
 import ProjectDetail from '@/components/ProjectDetail.vue'
 import { ref } from 'vue'
 

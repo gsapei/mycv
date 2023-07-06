@@ -43,27 +43,36 @@
       </v-card>
     </v-slide-x-transition>
     
-    <v-card class="px-2 py-6 principalCard elevation-0">     
+    <v-card class="px-2 py-2 principalCard elevation-0">     
       
-      <v-card-actions class="cardActions notPrintable">
+      <v-card-actions class="notPrintable">
         <v-spacer></v-spacer>
-        <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-print" @click="printContainer()"></v-btn>
-        <v-btn size="small" color="surface-variant" variant="text" icon="fa-solid fa-brush" @click="colorPicker=!colorPicker"></v-btn>
+        <v-btn class="actionButton" size="small" style="font-size: 1.1vw;" variant="text" icon="fa-solid fa-print" @click="printContainer()"></v-btn>
+        <v-btn class="actionButton" size="small" style="font-size: 1.1vw;" variant="text" icon="fa-solid fa-brush" @click="colorPicker=!colorPicker"></v-btn>
       </v-card-actions>
       
       <v-card-title>
         <v-row align="center">
           
           <v-col cols="4" class="pa-4" style="height: 100%; text-align: center;"> 
-            <img class="userAvatar" :src="userPhoto" style="max-width: 70%; border-radius: 50%;" >
+            <img class="userAvatar" :src="userPhoto" style="max-width: 70%; border-radius: 50%;">
           </v-col>
         
           <v-col cols="1"/>
 
           <v-col cols="7">
             <div class="principalHeader">
-              <h1>{{ principalTitle.toUpperCase() }}</h1>
-              <h3 class="text-primary pt-3">{{ principalSubtitle.toUpperCase() }}</h3>
+              <v-row>
+                <v-col class="pb-3">
+                  <h1>{{ principalTitle.toUpperCase() }}</h1>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col class="text-primary pt-2" >
+                  <h3>{{ principalSubtitle.toUpperCase() }}</h3>
+                </v-col>
+              </v-row>
+
             </div>
           </v-col>
         
@@ -120,7 +129,8 @@
 
   </v-container>
 
-</template>
+</template> 
+
 
 <script>
 import { ref } from "vue";
@@ -141,8 +151,10 @@ export default {
     const principalSubtitle=userData.userPosition;
 
     const selectedTheme = ref('themeBlue');
-    const colorPicker = ref(false); 
+    const colorPicker = ref(false);
+    const noBackground = ref(false);
     const theme = useTheme();
+
     const changeTheme = (newTheme) => {
       theme.global.name.value = newTheme;
       if(newTheme=='themeBlue'){ 
@@ -172,7 +184,8 @@ export default {
       }
       colorPicker.value = false;
     };
-    function printContainer(){
+
+    const printContainer = () => {
       /*
       let actualTheme = theme.global.name.value;
       changeTheme('themeBlack');
@@ -184,6 +197,7 @@ export default {
       */
       window.print();
     }
+
     return {
       userPhoto,
       principalTitle,
@@ -191,7 +205,7 @@ export default {
       colorPicker,
       changeTheme,
       selectedTheme,
-      printContainer,
+      printContainer
     }
   },
   components: {
@@ -208,5 +222,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.noBackground{
+  background-color: rgba(0,0,0,0.4);
+  .p {color: white;}
+}
   @import "@/css/variables.scss";
 </style>

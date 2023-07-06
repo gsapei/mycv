@@ -1,7 +1,7 @@
 <template>
   <div class="px-4">
     <v-row>
-      <h2 class="pb-4">LANGUAGES</h2> 
+      <h2 class="pb-4 text-primary">LANGUAGES</h2> 
     </v-row>
 
     <v-row v-for="lang in languages" :key="lang.name" class="pb-2">

@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row>
-      <h2 class="px-4">INTRODUCTION</h2> 
+      <h2 class="px-4 text-primary">INTRODUCTION</h2> 
     </v-row>
     <v-row class="px-4 py-2" style="text-align: justify;">
       <p v-html="userDescription"></p>

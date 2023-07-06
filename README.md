@@ -2,7 +2,7 @@
 This's a template for my own curriculum vitae. Made for VueJS 3 (vite) and vuetify 3
 
 ### Usage
-For customization just edit the **UserData.vue** file with your own data. 
+For customization just edit the **userData.vue** file with your own data. 
 And also you can edit **MainPage.vue** to change the order of the components. **It's very intuitive!**
 
 Components available (as HTML tags):
@@ -13,4 +13,6 @@ Components available (as HTML tags):
 <userSkills/>
 <userEducation/>
 <userLanguages/>
+<userProjects/>
+...
 ```

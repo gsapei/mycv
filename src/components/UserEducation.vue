@@ -1,7 +1,7 @@
 <template>
   <div class="px-4">
     <v-row>
-      <h2>EDUCATION</h2> 
+      <h2 class="text-primary">EDUCATION</h2> 
     </v-row>
 
     <v-row v-for="data in userEducation" :key="data.name" class="pb-1">

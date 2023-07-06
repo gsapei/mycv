@@ -1,17 +1,14 @@
 <template>
   <div class="px-4">
     <v-row>
-      <h2>RECENT PROJECTS</h2> 
+      <h2 class="text-primary">RECENT PROJECTS</h2> 
     </v-row>
 
     <v-row class="dontBreakOnPrint">
       <v-col v-for="data in userProjects" :key="data.name" class="px-1" cols="6">
         <v-card class="text-center py-2 projectCard" elevation="2" @click="openProject(data)">
           <h4 class="pb-2"> {{ data.name }} </h4>
-          
-          <div style="height: 140px;">
-            <img :src="getImageUrl(data.images[0])" style="max-width: 250px;" class="px-3" />
-          </div>
+          <img :src="getImageUrl(data.images[0])" style="max-width: 100%;" class="px-3" />
         </v-card>
       </v-col>
     </v-row>  
@@ -61,6 +58,7 @@ export default {
 <style lang="scss" scoped>
   @import "@/css/variables.scss";
   .projectCard{
+    height: 35vh;
     &:hover {
       filter: brightness(95%);
       -webkit-filter: grayscale(0%);

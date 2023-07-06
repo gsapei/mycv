@@ -3,12 +3,12 @@
       <v-col>
 
         <v-row>
-          <h2>CONTACT</h2> 
+          <h2 class="text-primary">CONTACT</h2> 
         </v-row>
         
         <v-row>
           <v-col cols="1" class="px-0">
-            <v-icon color="primary" icon="fa-sharp fa-solid fa-house"></v-icon>
+            <v-icon color="primary" icon="fa-sharp fa-solid fa-house" class="icons"></v-icon>
           </v-col>
           <v-col cols="11">
             <p class="px-2"> {{ userAdress }} </p>
@@ -17,7 +17,7 @@
         
         <v-row>
           <v-col cols="1" class="px-1">
-            <v-icon color="primary" icon="fa-solid fa-mobile"></v-icon>
+            <v-icon color="primary" icon="fa-solid fa-mobile" class="icons"></v-icon>
           </v-col>
           <v-col cols="11">
             <p class="px-2"> {{ userPhone }} </p>
@@ -26,7 +26,7 @@
         
         <v-row>
           <v-col cols="1" class="px-0">
-            <v-icon color="primary" icon="fa-solid fa-envelope"></v-icon>
+            <v-icon color="primary" icon="fa-solid fa-envelope" class="icons"></v-icon>
           </v-col>
           <v-col cols="11">
             <p class="px-2"> {{ userEmail }} </p>
@@ -34,28 +34,28 @@
         </v-row>
 
         <v-row class="pt-6 notPrintable">
-          <h2>SOCIAL MEDIA</h2> 
+          <h2 class="text-primary">SOCIAL MEDIA</h2> 
         </v-row>        
       
         <v-row>
           <v-col cols="3" class="px-0">
             <a :href="'https://' + userInstagram">
-              <v-icon color="primary" icon="fa-brands fa-square-instagram"></v-icon>
+              <v-icon color="primary" icon="fa-brands fa-square-instagram" class="icons"></v-icon>
             </a>
           </v-col>
           <v-col cols="3" class="px-0">
             <a :href="'https://' + userLinkedIn">
-              <v-icon color="primary" icon="fa-brands fa-linkedin"></v-icon>
+              <v-icon color="primary" icon="fa-brands fa-linkedin" class="icons"></v-icon>
             </a>
           </v-col>
           <v-col cols="3" class="px-0">
             <a :href="'https://' + userGithub">
-              <v-icon color="primary" icon="fa-brands fa-github"></v-icon>
+              <v-icon color="primary" icon="fa-brands fa-github" class="icons"></v-icon>
             </a>
           </v-col>
           <v-col cols="3" class="px-0">
             <a :href="'https://' + userFlickr">
-              <v-icon color="primary" icon="fa-brands fa-flickr"></v-icon>
+              <v-icon color="primary" icon="fa-brands fa-flickr" class="icons"></v-icon>
             </a>
           </v-col>
 
@@ -69,11 +69,15 @@
 
 <script>
 import { userData }from '@/components/userData.vue'
+import { ref } from 'vue'
 
 export default {
   name: "userContact",
   data(){
+    const iconSize=ref('medium');
+    
     return {
+      iconSize,
       userAdress: userData.userAdress,
       userPhone: userData.userPhone,
       userEmail: userData.userEmail,
@@ -93,5 +97,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  p{
+    text-align: left !important;
+  }
   @import "@/css/variables.scss";
 </style>

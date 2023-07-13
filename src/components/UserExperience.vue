@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import { userData }from '@/components/userDataSapei.vue'
 
 export default {
   name: "userExperience",
-  data(){
-    return {userExperience: userData.userExperience}
+  props: ['userData'],
+  data(props){
+    return {userExperience: props.userData.userExperience}
   }
 };
 

@@ -35,7 +35,7 @@
 
 export default {
     props: ['project'],
-    setup(props){
+    setup(){
         const getImageUrl = (name) => {
             const url = new URL('../assets/images/projects/' + name, import.meta.url).href;
             return url;

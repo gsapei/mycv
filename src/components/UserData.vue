@@ -5,9 +5,16 @@ const userData = {
     userPhoto: pic,
     userName: "userName",
     userPosition: "userPosition",
+    userContact: [
+        { text: "userContact.text", icon: 'fa-solid fa-circle-exclamation' },
+    ],
+    userSocial: [
+        { name: 'userSocial.name', link: "#", icon: 'fa-solid fa-circle-exclamation' },
+    ],    
     userAdress: "userAdress",
     userPhone: "userPhone",
     userEmail: "userEmail",
+    userWeb: "userWeb",
     userInstagram: "userInstagram",
     userLinkedIn: "userLinkedIn",
     userGithub: "userGithub",
@@ -20,7 +27,7 @@ const userData = {
         }
     ],
     userDescription: `
-    userDescription
+        userDescription
     `,
     userExperience: [
         {
@@ -29,7 +36,7 @@ const userData = {
             description: `userExperience.description`
         },   
     ],
-    languages: [
+    userLanguages: [
         { name: 'languages.name', percent: 50 },
     ],
     userSkills: [

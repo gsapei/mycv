@@ -1,9 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
-import { loadFonts } from './plugins/webfontloader'
-import { VueResponsiveness, Presets } from 'vue-responsiveness'
-loadFonts()
+import { VueResponsiveness } from 'vue-responsiveness'
 
 createApp(App)
 .use(VueResponsiveness, {

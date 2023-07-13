@@ -6,6 +6,7 @@
 
     <v-row class="dontBreakOnPrint">
       <v-col v-for="data in userProjects" :key="data.name" class="px-1" cols="6">
+        <p></p>
         <v-card class="text-center pt-2 projectCard" elevation="2" @click="openProject(data)">
           <v-row>
             <v-col>
@@ -14,7 +15,7 @@
           </v-row>
           <v-row style="min-height: 100%;">
             <v-col>
-              <img :src="getImageUrl(data.images[0])" style="max-width: 100%;" class="px-3" />
+              <img :src="getImageUrl(data.images[0])" style="width: 90%;" class="px-3" />
             </v-col>
           </v-row>
         </v-card>
@@ -29,13 +30,13 @@
 </template>
 
 <script>
-import { userData }from '@/components/userDataSapei.vue'
 import ProjectDetail from '@/components/ProjectDetail.vue'
 import { ref } from 'vue'
 
 export default {
   name: "userProjects",
-  data(){
+  props: ['userData'],
+  data(props){
     const dialogProject = ref(false);
     const projectName = ref(null);
 
@@ -48,8 +49,9 @@ export default {
       const url = new URL('../assets/images/projects/' + name, import.meta.url).href;
       return url;
     }
+
     return {
-      userProjects: userData.userProjects,
+      userProjects: props.userData.userProjects,
       getImageUrl,
       dialogProject,
       projectName,

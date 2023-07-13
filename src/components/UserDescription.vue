@@ -14,8 +14,9 @@ import { userData }from '@/components/userDataSapei.vue'
 
 export default {
   name: "userDescription",
-  data(){
-    return {userDescription: userData.userDescription}
+  props: ['userData'],
+  data(props){
+    return {userDescription: props.userData.userDescription}
   }
 };
 

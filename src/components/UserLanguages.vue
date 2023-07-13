@@ -16,12 +16,13 @@
 </template>
 
 <script>
-import { userData }from '@/components/userDataSapei.vue'
 
 export default {
   name: "userLanguages",
-  data(){
-    return {languages: userData.languages}
+  props: ['userData'],
+  data(props){
+    const languages = props.userData.userLanguages;
+    return {languages}
   }
 };
 

@@ -51,50 +51,26 @@
       </v-card-actions>
       
       <v-card-title>
-        <v-row align="center">
-          
-          <v-col cols="4" class="pa-4" style="height: 100%; text-align: center;"> 
-            <img class="userAvatar" :src="userPhoto" style="max-width: 70%; border-radius: 50%;">
-          </v-col>
-        
-          <v-col cols="1"/>
-
-          <v-col cols="7">
-            <div class="principalHeader">
-              <v-row>
-                <v-col class="pb-3">
-                  <h1>{{ principalTitle.toUpperCase() }}</h1>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col class="text-primary pt-2" >
-                  <h3>{{ principalSubtitle.toUpperCase() }}</h3>
-                </v-col>
-              </v-row>
-
-            </div>
-          </v-col>
-        
-        </v-row>
+        <userHeader :userData="userData"/>
       </v-card-title>
         
       <v-row class="py-4 px-8">  
         <!--- Left Paragraph ---->       
         <v-col cols="4" class="py-6 px-4 leftParagraph">
           <v-row>
-            <v-col><userContact/></v-col>
+            <v-col><userContact :userData="userData"/></v-col>
           </v-row>
 
           <v-row class="pt-6">
-            <v-col><userEducation/></v-col>  
+            <v-col><userEducation :userData="userData"/></v-col>  
           </v-row>
 
           <v-row class="pt-6">
-            <v-col><userLanguages/></v-col>
+            <v-col><userLanguages :userData="userData"/></v-col>
           </v-row>
           
           <v-row class="pt-6">
-            <v-col><userSkills/></v-col>
+            <v-col><userSkills :userData="userData"/></v-col>
           </v-row>
 
         </v-col>
@@ -108,15 +84,15 @@
         <v-col cols="7" class="px-4 py-6 rightParagraph">
 
           <v-row>
-            <v-col><userDescription/></v-col>
+            <v-col><userDescription :userData="userData"/></v-col>
           </v-row>
 
           <v-row class="pt-6">
-            <v-col><userExperience/></v-col>
+            <v-col><userExperience :userData="userData"/></v-col>
           </v-row>
         
           <v-row class="pt-6 notPrintable">
-            <v-col><userProjects/></v-col>
+            <v-col><userProjects :userData="userData"/></v-col>
           </v-row>
 
         </v-col>
@@ -134,7 +110,10 @@
 <script>
 import { ref } from "vue";
 import { useTheme } from 'vuetify'
-import { userData } from '@/components/userDataSapei.vue'
+
+import { userData } from '@/components/userData.vue'
+
+import userHeader from '@/components/userHeader.vue'
 import userSkills from '@/components/userSkills.vue'
 import userLanguages from '@/components/userLanguages.vue'
 import userExperience from '@/components/userExperience.vue'
@@ -145,9 +124,7 @@ import userProjects from '@/components/userProjects.vue'
 
 export default {
   setup() {
-    const userPhoto=userData.userPhoto;
-    const principalTitle=userData.userName;
-    const principalSubtitle=userData.userPosition;
+
 
     const selectedTheme = ref('themeBlue');
     const colorPicker = ref(false);
@@ -203,9 +180,7 @@ export default {
     }
 
     return {
-      userPhoto,
-      principalTitle,
-      principalSubtitle,
+      userData,
       colorPicker,
       changeTheme,
       selectedTheme,
@@ -214,22 +189,19 @@ export default {
     }
   },
   components: {
+    userHeader,
     userSkills,
     userLanguages,
     userExperience,
     userContact,
     userEducation,
     userDescription,
-    userProjects
+    userProjects,
   }
 }
 
 </script>
 
 <style lang="scss" scoped>
-.noBackground{
-  background-color: rgba(0,0,0,0.4);
-  .p {color: white;}
-}
   @import "@/css/variables.scss";
 </style>

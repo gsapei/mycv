@@ -59,11 +59,24 @@
 <script>
 import { ref, defineAsyncComponent } from "vue"
 
-import { getData } from '@/helpers/axiosGet.js'
-const userData = ref(null)
+import { getData,getLanguages } from '@/helpers/axiosGet.js'
 
-const languages = ['spanish','english','template'];
-getData(languages[0]).then( res => { userData.value=res; })
+const userData = ref(null);
+const languages = ref(null)
+
+getLanguages()
+.then(langs=>{
+  languages.value = langs;
+  try{
+    getData(languages.value[0])
+    .then( res => { 
+      userData.value=res;
+    });
+  }
+  catch (err){
+    throw new Error("No languages registered on database",err); 
+  }
+})
 
 //ASYNC COMPONENTS:
 const userHeader = defineAsyncComponent(() =>
@@ -98,11 +111,11 @@ export default {
   name: "MainPageMobile",
   setup() {
 
-    const selectedLanguage = ref(0)
+    const selectedLanguage = ref(null);
 
     const changeLanguage = () => {
-      selectedLanguage.value<languages.length-1 ? selectedLanguage.value++ : selectedLanguage.value=0;
-      getData(languages[selectedLanguage.value]).then( res => { userData.value=res; })
+      selectedLanguage.value<languages.value.length-1 ? selectedLanguage.value++ : selectedLanguage.value=0;
+      getData(languages.value[selectedLanguage.value]).then( res => { userData.value=res; })
     }
 
     return {

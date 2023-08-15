@@ -1,0 +1,188 @@
+@font-face {
+    font-family: openSans;
+    src: url(../assets/OpenSans-Regular.ttf);
+  }
+
+@font-face {
+  font-family: openSansCondensed;
+  src: url(../assets/OpenSans_Condensed-Regular.ttf);
+}
+
+@media screen and (min-width: 920px){
+
+  .progressLabel{
+    font-size: 12pt;
+    color: white;
+    //sombras en las 4 esquinas
+    text-shadow: -1px -1px 1px rgba(0,0,0,.6), 
+                 -1px 1px 1px rgba(0,0,0,.6), 
+                 1px -1px 1px rgba(0,0,0,.6), 
+                 1px 1px 1px rgba(0,0,0,.6);
+ }
+ 
+ .progressPrinted {
+  display: none;
+ }
+
+ .actionButton{
+  font-size: 11pt;
+ }
+
+ 
+  .icons{
+    font-size: 16pt;
+  }
+
+  h2{
+    font-size: 20pt;
+    font-weight: bolder;
+    font-family: openSansCondensed;
+  }
+
+  h4{
+    font-size: 16pt;
+    font-family: openSansCondensed;
+  }
+
+  p{
+    font-size: 12pt;
+    text-align: justify;
+    font-family: openSans;
+  }
+
+
+}
+@media screen and (max-width: 920px){
+
+  .progressLabel{
+    font-size: 8pt;
+    color: white;
+    //sombras en las 4 esquinas
+    text-shadow: -1px -1px 1px rgba(0,0,0,.6), 
+                 -1px 1px 1px rgba(0,0,0,.6), 
+                 1px -1px 1px rgba(0,0,0,.6), 
+                 1px 1px 1px rgba(0,0,0,.6);
+ }
+ 
+ .progressPrinted {
+  display: none;
+ }
+
+ .actionButton{
+  font-size: 8pt;
+ }
+ 
+  .icons{
+    font-size: 12pt;
+  }
+
+  h2{
+    font-size: 14pt;
+    font-weight: bolder;
+    font-family: openSansCondensed;
+  }
+
+  h4{
+    font-size: 12pt;
+    font-family: openSansCondensed;
+  }
+
+  p{
+    font-size: 10pt;
+    text-align: justify;
+    font-family: openSans;
+  }
+
+
+}
+@media screen and (max-width: 600px){
+
+  h1{
+    font-size: 22pt;
+  }
+
+  h3{
+    font-size: 15pt;
+  } 
+
+}
+@media screen and (max-width: 450px){
+
+  .progressLabel{
+    font-size: 11pt;
+ } 
+ p{
+  word-wrap: break-word;
+  text-align: justify;
+ }
+}
+
+@media print {
+  .background {background-color:#FFFFFF;}
+
+  .principal{
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+
+  .dontBreakOnPrint{
+    break-inside: avoid;
+  }
+
+  .principalHeader{
+    text-align: left;
+  }
+
+  h1{
+    font-size: 35pt;
+    font-family: openSansCondensed;
+  }
+  
+  h2{
+    font-size: 19pt;
+    font-family: openSansCondensed;
+
+  }
+
+  h3{
+    font-size: 25px;
+    font-family: openSansCondensed;
+  }
+
+  p{
+    font-size: 12pt;
+    text-align: openSans;
+  }
+
+  .cardActions{
+    display: none;
+  }
+  .rightParagraph{
+    min-width: 45%;
+  }
+  .centerParagraph{
+    display: none;
+  }
+
+  .leftParagraph{
+    min-width: 40%;
+  }
+  
+  .progressLabel{
+    color: black;
+    text-shadow: 0px;
+  }
+
+  .v-progress-linear {
+    display: none;
+  }
+
+  .progressPrinted {
+    display: block;
+  }  
+
+  .notPrintable{
+    display: none;
+  }
+
+}  

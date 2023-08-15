@@ -1,0 +1,52 @@
+ # docker-compose.yml
+version: "3.8"
+services:
+  
+  myCv-Database:
+    container_name: myCv-database
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    command: [--auth]
+    environment:
+      MONGO_INITDB_DATABASE: myCv
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      #script para inicializar base de datos (crea la bd, tablas, relaciones)
+      - ./backend/Script_MongoDB.js:/docker-entrypoint-initdb.d/Script_MongoDB.js
+
+  myCv-Backend:
+    container_name: myCv-backend
+    image: node:20-alpine
+    restart: always
+    ports:
+      - "8901:8901"    
+    environment:
+      SERVER_PORT: 8901
+      DATABASE_URL: mongodb://myCv-database:27017/myCv
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: password      
+    depends_on:
+      - myCv-Database  
+    working_dir: /backend/
+    command: npm install
+    command: npm run dev
+    volumes:
+      - ./backend:/backend
+
+  myCv-Frontend:
+    container_name: myCv-frontend
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    restart: always  
+    environment: 
+        BACKEND_API: "http://myCv-backend:8901"
+    depends_on:
+      - myCv-Backend
+      - myCv-Database
+    volumes:
+      - ./frontend/dist/:/usr/share/nginx/html/:rw
+      - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf:ro

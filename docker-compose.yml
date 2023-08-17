@@ -15,7 +15,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
       #script para inicializar base de datos (crea la bd, tablas, relaciones)
-      - ./backend/Script_MongoDB.js:/docker-entrypoint-initdb.d/Script_MongoDB.js
+      - ./backend/Script_MongoDB_Sapei.js:/docker-entrypoint-initdb.d/Script_MongoDB.js
 
   myCv-Backend:
     container_name: myCv-backend

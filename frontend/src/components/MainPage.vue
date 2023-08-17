@@ -1,9 +1,12 @@
 <template>
   <div class="background"/>
   <div class="backgroundHue"/>
+  
+
   <v-container class="py-10 px-16 principal" fluid>
     
     <v-slide-x-transition>
+
       <v-card class="colorPicker notPrintable" v-if="colorPicker">
           <v-col>
             <v-row>
@@ -115,7 +118,6 @@
 <script>
 import { ref, defineAsyncComponent } from "vue"
 import { useTheme } from 'vuetify'
-
 import { getData,getLanguages } from '@/helpers/axiosGet.js'
 
 const userData = ref(null);
@@ -168,7 +170,7 @@ const userProjects = defineAsyncComponent(() =>
 export default {
   name: "MainPage",
   setup() {
-    
+
     const selectedLanguage = ref(null);
 
     const selectedTheme = ref('themeBlue');
@@ -264,6 +266,8 @@ export default {
   }
 
   .principalCard{
+    //clip-path: polygon(60% 2%, 0% 2%, 0% 100%, 100% 100%, 100% 0%, 65% 0%);
+    clip-path: path("0 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80");
     background-color:rgba(255,255,255,.9);
   }
 
@@ -272,8 +276,11 @@ export default {
     width: 100%;
     height: 100%;
     //font-family: customFont;
-    background: url('@/assets/images/background.jpg') center center fixed !important;
-    background-size: 100%;
+    background: url('@/assets/images/background.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
   
   .backgroundHue {

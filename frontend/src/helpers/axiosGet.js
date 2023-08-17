@@ -1,4 +1,4 @@
-import { api } from '../boot/axios.js'
+import { api } from '../boot/axios.js' 
 
 export async function getData(lang){
     return new Promise((resolve, reject) => {
